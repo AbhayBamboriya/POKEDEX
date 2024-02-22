@@ -1,0 +1,22 @@
+/* .search-wrapper{
+
+    margin: 0 auto;
+}
+#pokemon-name-search{
+    width: 600px;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 2px black solid;
+    border-radius: 20px;
+} */
+
+
+
+.search-wrapper {
+    margin: 0 auto;
+}
+#pokemon-name-search {
+    margin-top: 2rem;
+    width: 600px;
+    padding: 1.5rem;
+}

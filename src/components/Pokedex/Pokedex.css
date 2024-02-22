@@ -1,0 +1,19 @@
+/* .pokedex-wrapper{
+    display: flex;
+    flex-direction: column;
+
+}
+
+#pokedex-heading{
+    margin: 0 auto;
+    letter-spacing: 15px;
+} */
+
+.pokedex-wrapper {
+    display: flex;
+    /* margin-left: 1200px; */
+    flex-direction: column;
+}
+#pokedex-heading{
+    margin-left: 678px;
+}

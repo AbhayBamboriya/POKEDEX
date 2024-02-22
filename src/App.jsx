@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom"
-import Pokedex from "./components/Pokedex/Pokedex"
+// import Pokedex from "./components/Pokedex/Pokedex"
+import CustomRoutes from "./routes/CustomRoutes"
+// import Pokedex from "./components/Pokedex/Pokedex"
 
 
 function App(){
@@ -10,7 +12,8 @@ function App(){
           Pokedex
         </Link>
       </h1>
-      <Pokedex/>
+      {/* <Pokedex/> */}
+      <CustomRoutes/>
    
     </>
   )

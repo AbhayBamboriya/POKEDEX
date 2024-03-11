@@ -2,6 +2,7 @@ import axios from 'axios';
 import './PokemonList.css'
 import { useEffect, useState } from 'react';
 import Pokemon from '../Pokemon/Pokemon';
+import Preloader from '../PreLoader/PreLoader';
 function PokemonList(){
     // const[pokemonList,setPokemonlist]=useState([])
     // const [isLoading,setIsLoading]=useState(true)
@@ -125,7 +126,8 @@ function PokemonList(){
                             // PokemonListState.pokemonList.map((p)=><Pokemon name={p.name} image={p.image} key={p.id} id={p.id}/>)
                         } */}
                         {   
-                        (pokemonListState.isLoading)?'Loading......' :
+                        
+                        (pokemonListState.isLoading)?<Preloader/> :
                         pokemonListState.pokemonList.map((p)=><Pokemon name={p.name} image={p.image} key={p.id} id={p.id}/>)
                             // PokemonListState.pokemonList.map((p)=><Pokemon name={p.name} image={p.image} key={p.id} id={p.id}/>)
                         }

@@ -33,3 +33,34 @@
     padding: 1rem;
     background-color: greenyellow;
 }
+
+.other{
+    font-size: large;
+    /* justify-content: center; */
+    align-items: center;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 2px;
+}
+.message{
+    font-weight: 1000;
+    font-size: 30px;
+
+}
+.other ul{
+    letter-spacing: 2px;
+    justify-content: center;
+    /* text-decoration: none   ;
+     */
+     padding-left: 180px;
+     list-style:disc;
+    align-items: center;
+
+}
+.other ul :hover{
+    /* display: none; */
+    color: red;
+    font-family:cursive;
+    font-size: 40px;
+    /* letter-spacing: /20px; */
+}

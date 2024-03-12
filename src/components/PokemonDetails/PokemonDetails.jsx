@@ -21,8 +21,8 @@ function PokemonDetails(){
             {
                 // console.log("poke type" ,pokemon.types)
                 pokemon.types && pokemon.similarPokemon && 
-                <div>
-                    More {pokemon.types[0]} type pokemons
+                <div className="other">
+                    <div className="message">More {pokemon.types[0]} type pokemons</div>
                     <ul>
                    {  pokemon.similarPokemon  .map((p) => <li key={p.pokemon.id}>{p.pokemon.name}</li>)}
                     </ul>

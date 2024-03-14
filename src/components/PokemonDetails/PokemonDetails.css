@@ -5,7 +5,7 @@
 
 .pokemon-name{
     font-size: xx-large;
-    color: black;
+    color: #808080;
     margin-bottom: 40px;
     
 }
@@ -41,6 +41,7 @@
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
     letter-spacing: 2px;
+    color: #808080;
 }
 .message{
     font-weight: 1000;
@@ -61,6 +62,6 @@
     /* display: none; */
     color: red;
     font-family:cursive;
-    font-size: 40px;
+    /* font-size: 40px; */
     /* letter-spacing: /20px; */
 }

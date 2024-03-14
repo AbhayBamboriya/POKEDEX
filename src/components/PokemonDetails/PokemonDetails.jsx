@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom"
+import {useParams } from "react-router-dom"
 import './PokemonDetails.css'
 import usePokemonDetails from "../../hooks/usePokemonDetails";
-// import usePokemonList from "../../hooks/usePokemonList";
-function PokemonDetails(){
-    const {id}=useParams();
-    const [pokemon]=usePokemonDetails(id);
+import axios from "axios";
+function PokemonDetails({pokemonName}){
+    let {id}=useParams()
+    const [pokemon]=usePokemonDetails(id,pokemonName);
     return (
         <div className="pokemon-details-wrapper">
             <div className="pokemon-name" ><span>{pokemon.name}</span></div>
@@ -19,18 +19,31 @@ function PokemonDetails(){
               {/* conditon */} 
               
             {
-                // console.log("poke type" ,pokemon.types)
+            
                 pokemon.types && pokemon.similarPokemon && 
                 <div className="other">
                     <div className="message">More {pokemon.types[0]} type pokemons</div>
                     <ul>
-                   {  pokemon.similarPokemon  .map((p) => <li key={p.pokemon.id}>{p.pokemon.name}</li>)}
+                   {  pokemon.similarPokemon.map((p) => <li key={p.pokemon.url} > 
+                   
+                        {p.pokemon.name}
+                    </li>)}
                     </ul>
+                    
                 </div>
             }
         </div>
     )
-}   
+    
+} 
+async function Downloading(name){
+    console.log(name);
+   const searchByName=await axios.get(`http://pokeapi.co/api/v2/pokemon/${name}`)
+   Id=searchByName.data.id
+   console.log(Id);  
+   {PokemonDetails()}
+}
+
 
 export default PokemonDetails
 

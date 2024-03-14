@@ -41,7 +41,7 @@ function PokemonList(){
                
         // </div>
         <div className="pokemon-list-wrapper">
-            <div>Pokemon List </div>
+            {/* <div>Pokemon List </div> */}
             <div className="pokemon-wrapper">
                     {/* {   
                         (isLoading)?'Loading......' :

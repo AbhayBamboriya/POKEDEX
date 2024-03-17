@@ -70,7 +70,7 @@ async function Downloading(name){
    {PokemonDetails()}
 }
 
-
+ 
 export default PokemonDetails
 
 

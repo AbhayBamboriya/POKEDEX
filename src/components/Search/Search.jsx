@@ -1,4 +1,5 @@
 import useDebounce from '../../hooks/useDebounce'
+import Preloader from '../PreLoader/PreLoader'
 import './Search.css'
 function Search({updateSearchTerm}){
     const debouncedCallback=useDebounce((e)=>updateSearchTerm(e.target.value))
@@ -9,6 +10,7 @@ function Search({updateSearchTerm}){
                 type="text"
                 placeholder="pokemon name ....."
                 onChange={debouncedCallback}
+               
             />
         </div>
     )

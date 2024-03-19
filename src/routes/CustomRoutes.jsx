@@ -7,6 +7,8 @@
             <Routes>
                 <Route path="/" element={<Pokedex/>}/>
                 <Route path="/pokemon/:id" element={<PokemonDetails/>}/>
+                <Route path="/pokemon/:pn" element={<PokemonDetails/>}/>
+
             </Routes>
         )
     }

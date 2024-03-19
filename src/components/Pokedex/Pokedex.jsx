@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import PokemonList from "../Pokemonlist/PokemonList"
 import Search from "../Search/Search"
 // CSS

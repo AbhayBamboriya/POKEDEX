@@ -1,14 +1,26 @@
-import {useParams } from "react-router-dom"
+import {Link,  useParams } from "react-router-dom"
 import './PokemonDetails.css'
 import usePokemonDetails from "../../hooks/usePokemonDetails";
-import axios from "axios";
+import Check from "../Check/Check";
+import { useEffect } from "react";
 // import Download from "../Download/Download";
 // import { useEffect, useState } from "react";
 
+
+
+
 function PokemonDetails({pokemonName}){
-    console.log(pokemonName);
-    let {id}=useParams()
-    const [pokemon]=usePokemonDetails(id,pokemonName);
+    console.log('chhheck',{pokemonName});
+    let {id,pn}=useParams()
+    console.log('bb',id);
+    const [pokemon]=usePokemonDetails(pokemonName,id);
+
+
+    const handleClick = () => {
+        console.log('hhhhhhhhh');
+        <Check/>// Toggle between Component1 and Component2
+      };
+ 
     // const [check,setcheck]=useState('')
     // let Name;
     // useEffect(()=>{
@@ -32,29 +44,17 @@ function PokemonDetails({pokemonName}){
                 pokemon.types && pokemon.similarPokemon && 
                 <div className="other">
                     <div className="message">More {pokemon.types[0]} type pokemons</div>
-                    <ul>
-                   {  pokemon.similarPokemon.map((p) => <li key={p.pokemon.url} onClick={()=>{
-                                console.log(p.pokemon.name)
-                                //  this.PokemonDetails(name)
-                                // {name && <PokemonDetails pokemonName={name}></PokemonDetails>}
-                                {p.pokemon.name && PokemonDetails(p.pokemon.name)}
-                        
-                           
-                        {/* </PokemonDetails>                                  */}
+                 <ul>
+                 {  pokemon.similarPokemon.map((p) =><li key={p.pokemon.url} onClick={()=>{
+                    <PokemonDetails key={p.pokemon.name} pokemonName={p.pokemon.name}/>
+                 }}>
 
-                   }
-       
-                   }
-                    // {<PokemonDetails  pokemonName={p.pokemon.name} key={p.pokemon.url} />}
-                    // PokemonDetails(p.pokemon.url,p.pokemon.name)
-                
-
-                   
-                   > 
-                   
+                        {/* {p.pokemon.name} */}
+                        <Link to={`/pokemon/${p.pokemon.name}`}>
                         {p.pokemon.name}
+                      </Link>
                     </li>)}
-                    </ul>
+                 </ul>
                     
                 </div>
             }
@@ -62,13 +62,13 @@ function PokemonDetails({pokemonName}){
     )
     
 } 
-async function Downloading(name){
-    console.log(name);
-   const searchByName=await axios.get(`http://pokeapi.co/api/v2/pokemon/${name}`)
-   Id=searchByName.data.id
-   console.log(Id);  
-   {PokemonDetails()}
-}
+// async function Downloading(name){
+//     console.log(name);
+//    const searchByName=await axios.get(`http://pokeapi.co/api/v2/pokemon/${name}`)
+//    Id=searchByName.data.id
+//    console.log(Id);  
+//    {PokemonDetails()}
+// }
 
  
 export default PokemonDetails

@@ -15,6 +15,10 @@
 .search-wrapper {
     margin: 0 auto;
 }
+input:focus{
+    color: rebeccapurple;
+    font-size: 25px;
+}
 #pokemon-name-search {
     margin-top: 2rem;
     width: 600px;

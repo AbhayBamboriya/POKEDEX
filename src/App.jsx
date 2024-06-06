@@ -7,16 +7,12 @@ import './App.css'
 function App(){
   return(
     <>
-      {/* <Preloader/> */}
-    
       <h1 id="pokedex-heading">
         <Link to='/'>
           Pokedex
         </Link>
       </h1> 
-      {/* <Pokedex/> */}
       <CustomRoutes/>
-
     </>
   )
 }

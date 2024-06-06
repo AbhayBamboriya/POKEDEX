@@ -10,7 +10,7 @@ function usePokemonList(){
         pokedexUrl:'https://pokeapi.co/api/v2/pokemon',
         nextUrl:'',
         prevUrl:'',
-        
+        type:''
     })
 
     async function downloadPokemons(){
@@ -24,6 +24,7 @@ function usePokemonList(){
             // const response=await axios.get(pokedexUrl) //download the list of 20 pokemon
             const response=await axios.get(pokemonListState.pokedexUrl)
             const pokemonResults=response.data.results  //get the arraay of pokemons from result
+            // console.log('pokemon result',pokemonResults);
     
             // setPrevUrl(response.data.previous)
             // setNextUrl(response.data.next)
@@ -35,6 +36,7 @@ function usePokemonList(){
             const pokemonResultPromise=pokemonResults.map((pokemon)=>axios.get(pokemon.url))
 
             //passing that array to axios.all
+            // console.log('pokemon result promise',pokemonResultPromise);
             const pokemonData=await axios.all(pokemonResultPromise) //array of 20 pokemon detailed data
         
         
@@ -43,6 +45,7 @@ function usePokemonList(){
             // iterating on the data of each pokemon and extrat the information
             const res=pokemonData.map((pokedata)=>{
                 const pokemon=pokedata.data
+                console.log('pokemon details',pokemon);
                 return  {name:pokemon.name,
                     id:pokemon.id,
                     image:(pokemon.sprites.other)?pokemon.sprites.other.dream_world.front_default:pokemon.sprites.front_shiny,

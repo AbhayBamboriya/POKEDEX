@@ -11,10 +11,12 @@ function Pokedex(){
         <div className="pokedex-wrapper">  
             
             <Search updateSearchTerm={setSearchTerm}/>
-            {searchTerm}
+            {/* {searchTerm} */}
             {/* whenever the key in pokemonDeetails changs then rerendering will take place
                 so for rerendering only key prop is used */}
-            {!searchTerm?<PokemonList/>:<PokemonDetails key={searchTerm} pokemonName={searchTerm}/>}
+                {/* console.log(searchTerm); */}
+            {!searchTerm?<PokemonList/>:<PokemonDetails key={searchTerm} pokemonName={searchTerm} 
+            />}
         </div>
     )
 }

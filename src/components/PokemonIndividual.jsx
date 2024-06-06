@@ -1,25 +1,15 @@
-import {Link,  useParams } from "react-router-dom"
-import './PokemonDetails.css'
-import usePokemonDetails from "../../hooks/usePokemonDetails";
-
-
-
-
-function PokemonDetails({pokemonName}){
-    function send(p){
-        console.log('ew');
-    }
-    console.log('chhheck',{pokemonName});
-    let {id,pn}=useParams()
-    console.log('bb',id);
-    const [pokemon]=usePokemonDetails(id,pokemonName);
-
-
-    
-    return (
+import { useParams } from "react-router-dom";
+import usePokemonName from "../hooks/usePokemonName";
+import './pokemonindividual.css'
+function PokemonIndividual(){
+    const {name}=useParams()
+    console.log('checking ehere',name);
+    const [pokemon]= usePokemonName(name)
+    console.log('in pokemon individual',pokemon);
+    return(
         <div className="pokemon-details-wrapper">
             <div className="pokemon-name" ><span>{pokemon.name}</span></div>
-            <img className="image pokemon-name" src={pokemon.image}/>
+            <img className="image pokemon-name" src={pokemon.image} width={400} height={400}/>
             <div className="pokemon-name">Height:{pokemon.height}</div>
             <div className="pokemon-name">Weight:{pokemon.weight}</div>
             <div className="pokemon-types">
@@ -35,14 +25,9 @@ function PokemonDetails({pokemonName}){
                 <div className="other">
                     <div className="message">More {pokemon.types[0]} type pokemons</div>
                  <ul>
-                 {  pokemon.similarPokemon.map((p) =><li key={p.pokemon.url} >
-                    
-                        
-                        {/* <div onClick={()=><Pokemon name={p.pokemon.name} image={p.pokemon.image} id={p.pokemon.id}/>}> */}
-                        {/* <Link to={`/pokemon/${id}` }>{p.pokemon.name}</Link> */}
+                 {  pokemon.similarPokemon.map((p) =><li key={p.pokemon.url} onClick={()=>name=p.pokemon.name}>
+                                
                         <Link to={`/pokemonName/${p.pokemon.name}`}>{p.pokemon.name}</Link>
-
-                        {/* </div> */}
                      
                     </li>)}
                  </ul>
@@ -51,9 +36,5 @@ function PokemonDetails({pokemonName}){
             }
         </div>
     )
-    
-} 
-
-export default PokemonDetails
-
-
+}
+export default PokemonIndividual

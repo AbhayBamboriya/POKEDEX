@@ -45,7 +45,7 @@ function usePokemonList(){
             // iterating on the data of each pokemon and extrat the information
             const res=pokemonData.map((pokedata)=>{
                 const pokemon=pokedata.data
-                console.log('pokemon details',pokemon);
+                // console.log('pokemon details',pokemon);
                 return  {name:pokemon.name,
                     id:pokemon.id,
                     image:(pokemon.sprites.other)?pokemon.sprites.other.dream_world.front_default:pokemon.sprites.front_shiny,

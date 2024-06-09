@@ -5,20 +5,41 @@ function usePokemonName(PokemonName){
     const[pokemon,setPokemon]=useState({
         similarPokemon:''
     })
+    const [filling,setFilling]=useState({
+        fitlerPokemon:''
+    })
+    console.log('cdfjkdfjd',PokemonName);
     async function SameType(t){
         try{
-            console.log('entered',t);
             const pokemonOfSameType=await axios.get(`https://pokeapi.co/api/v2/type/${t.type.name}`)
-            // console.log('poke of same type',pokemonOfSameType);
-            console.log('zx',pokemonOfSameType);
-          
+            console.log('Namea and type'," ",PokemonName," ",t.type.name);
+            const tempArray = [];
+            console.log('res',pokemonOfSameType);
+            console.log('lengthfkfkd',tempArray.length," printing array ",tempArray);
+            let     i=1,flag=true,breaking=false;
+            pokemonOfSameType?.data?.pokemon.map((p)=>{
+                if(breaking)    return
+                if(tempArray.length==5){
+                    breaking=true
+                    return
+                }
+                if(PokemonName!=p.pokemon.name && !flag){
+                    tempArray.push({p,type:t.type.name});   
+                }
+                else if (PokemonName==p.pokemon.name){
+                    flag=false
+                }
+                i++;
+            })
+            setFilling(state=>({
+                ...state,
+                fitlerPokemon:tempArray
+            }))
+
                 setPokemon(state=>({
                     ...state,
-                    
-                    similarPokemonName:pokemonOfSameType.data.pokemon.slice(1,6)
+                    similarPokemonName:tempArray
                 }))
-            
-            console.log('ov er');
         }
         catch(e){
             console.log(e.message);
@@ -26,8 +47,6 @@ function usePokemonName(PokemonName){
     }
     async function download(){
         const response=await axios.get(`https://pokeapi.co/api/v2/pokemon/${PokemonName}`)
-        console.log('using name',response);
-        
         setPokemon(state=>({
             name:response?.data?.species?.name,
             image:response?.data?.sprites?.other?.dream_world?.front_default,
@@ -36,18 +55,15 @@ function usePokemonName(PokemonName){
             weight:response?.data?.weight,
             types:response.data.types.map((t)=>t.type.name),
         }))
-        console.log('begin');
         response.data.types.map((t)=>{
            SameType(t) 
         })
-        console.log('end');
-        
     }
     useEffect(()=>{
         download()
-    },[])
-
-    console.log('datals fetched',pokemon.similarPokemon);
+    },[PokemonName])
+    console.log('matching',filling);
+    console.log('datals fetched',pokemon);
     return  [pokemon]
 }
 export default usePokemonName

@@ -4,13 +4,15 @@ import Search from "../Search/Search"
 // CSS
 import './Pokedex.css'
 import PokemonDetails from "../PokemonDetails/PokemonDetails"
+import { useNavigate } from "react-router-dom"
 function Pokedex(){
+    const navigate=useNavigate()
     const [searchTerm,setSearchTerm]=useState('')
   
     return (    
         <div className="pokedex-wrapper">  
-            
-            <Search updateSearchTerm={setSearchTerm}/>
+            <button onClick={()=>navigate('/types')}><span>Search By Type</span></button>
+            <Search updateSearchTerm={setSearchTerm} placeholder={'Enter Name of Pokemon'}/>
             {/* {searchTerm} */}
             {/* whenever the key in pokemonDeetails changs then rerendering will take place
                 so for rerendering only key prop is used */}

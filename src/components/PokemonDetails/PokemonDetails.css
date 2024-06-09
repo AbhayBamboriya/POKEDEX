@@ -1,7 +1,11 @@
 .pokemon-details-wrapper{
-    margin-top: 60px;
-   
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
+
 
 .pokemon-name{
     font-size: xx-large;
@@ -19,11 +23,7 @@
     gap: 3rem;
     font-size: larger;
 }
-.pokemon-details-wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
 .image{
     max-height: 200px;
 }
@@ -36,8 +36,9 @@
 
 .other{
     font-size: large;
-    /* justify-content: center; */
-    align-items: center;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
     letter-spacing: 2px;
@@ -51,17 +52,21 @@
 .other ul{
     letter-spacing: 2px;
     justify-content: center;
-    /* text-decoration: none   ;
-     */
      padding-left: 180px;
      list-style:disc;
     align-items: center;
 
 }
 .other ul :hover{
-    /* display: none; */
     color: red;
     font-family:cursive;
-    /* font-size: 40px; */
-    /* letter-spacing: /20px; */
+}
+
+button{
+    cursor: pointer;
+    border: 1px solid greenyellow;
+    border-radius: 15px;
+    text-align: center;
+    /* padding: 1rem; */
+    background-color: greenyellow;
 }

@@ -19,7 +19,7 @@ function PokemonList(){
                         pokemonListState.pokemonList.map((p)=><Pokemon name={p.name} image={p.image} key={p.id} id={p.id}/>)
                           
                         }
-                        {console.log('pokemon',pokemonListState)}
+                        {/* {console.log('pokemon',pokemonListState)} */}
             </div>
             <div className="controls">
                 <button disabled={pokemonListState.prevUrl==null} onClick={()=> {

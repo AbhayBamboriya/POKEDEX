@@ -1,11 +1,11 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import usePokemonName from "../hooks/usePokemonName";
 import './pokemonindividual.css'
 function PokemonIndividual(){
     const {name}=useParams()
-    console.log('checking ehere',name);
+    // console.log('checking ehere',name);
     const [pokemon]= usePokemonName(name)
-    console.log('in pokemon individual',pokemon);
+    // console.log('in pokemon individual',pokemon);
     return(
         <div className="pokemon-details-wrapper">
             <div className="pokemon-name" ><span>{pokemon.name}</span></div>
@@ -16,24 +16,29 @@ function PokemonIndividual(){
                 {pokemon.types && pokemon.types.map((t) => <div key={t}>{t}</div>)}
             </div>
             <br/>   
-              
+              {/* <hr />     */}
               {/* conditon */} 
+
+              {console.log('in pokemon individual',pokemon)}
               
             {
             
-                pokemon.types && pokemon.similarPokemon && 
+                pokemon.similarPokemonName  && 
                 <div className="other">
                     <div className="message">More {pokemon.types[0]} type pokemons</div>
                  <ul>
-                 {  pokemon.similarPokemon.map((p) =><li key={p.pokemon.url} onClick={()=>name=p.pokemon.name}>
-                                
-                        <Link to={`/pokemonName/${p.pokemon.name}`}>{p.pokemon.name}</Link>
+                 {  pokemon.similarPokemonName.map((p) =><li key={p.p.pokemon.name}>
+                               {/* { console.log('ppppppp',p?.p?.pokemon?.name)} */}
+                               {console.log('pppppp',p)}
+                        <Link to={`/pokemonName/${p.p.pokemon.name}`}>{p.p.pokemon.name}</Link>
                      
                     </li>)}
                  </ul>
                     
                 </div>
             }
+
+           
         </div>
     )
 }

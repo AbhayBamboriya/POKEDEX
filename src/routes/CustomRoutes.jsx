@@ -1,7 +1,9 @@
-    import { Routes ,Route} from "react-router-dom"
-    import Pokedex from "../components/Pokedex/Pokedex"
-    import PokemonDetails from "../components/PokemonDetails/PokemonDetails"
+import { Routes ,Route} from "react-router-dom"
+import Pokedex from "../components/Pokedex/Pokedex"
+import PokemonDetails from "../components/PokemonDetails/PokemonDetails"
 import PokemonIndividual from "../components/PokemonIndividual"
+import Types from "../components/Types/Types"
+
     // import PokemonList from "../components/Pokemonlist/PokemonList"
     function CustomRoutes(){
         return(
@@ -10,6 +12,7 @@ import PokemonIndividual from "../components/PokemonIndividual"
                 <Route path="/pokemon/:id" element={<PokemonDetails/>}/>
                 <Route path="/pokemon/:pn" element={<PokemonDetails/>}/>
                 <Route path={`/pokemonName/:name`} element={<PokemonIndividual/>}/>
+                <Route path="/types" element={<Types/>}/>
             </Routes>
         )
     }

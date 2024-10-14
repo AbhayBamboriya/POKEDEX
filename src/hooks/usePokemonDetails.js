@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function usePokemonDetails(id,PokemonName){
+function usePokemonDetails(PokemonName,id){
     const[pokemon,setPokemon]=useState({})
     // console.log(id);
     // let pokemonListHookResponse=[]
@@ -10,25 +10,29 @@ function usePokemonDetails(id,PokemonName){
         try{
             let response;
             if(PokemonName){
-                response=await axios.get(`http://pokeapi.co/api/v2/pokemon/${PokemonName}`)
+                response=await axios.get(`https://pokeapi.co/api/v2/pokemon/${PokemonName}`)
             }
-            else  response=await axios.get(`http://pokeapi.co/api/v2/pokemon/${id}`)
-            const pokemonOfSameType= axios.get(`http://pokeapi.co/api/v2/type/${response.data.types ? response.data.types[0].type.name :''}`)
+            else  response=await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+            const pokemonOfSameType= axios.get(`https://pokeapi.co/api/v2/type/${response.data.types ? response.data.types[0].type.name :''}`)
             
             // console.log("responswe",pokemonOfSameType);
+            // console.log("dfdf"+response.data);
             setPokemon(state=>({
                 name:response.data.name,
                 image:response.data.sprites.other.dream_world.front_default,
+                id:id,
                 weight:response.data.weight,
                 height:response.data.height,
                 types:response.data.types.map((t)=>t.type.name),
                 // similarPokemon:pokemonOfSameType.data.pokemon.slice(0,4)
             }))
-    
             
+
+            console.log('debugging',pokemon);
             pokemonOfSameType.then((response)=>{
                 setPokemon(state=>({
                     ...state,
+                   
                     similarPokemon:response.data.pokemon.slice(1,6),
                     // url:response.data.pokemon.url
                     
@@ -53,7 +57,7 @@ function usePokemonDetails(id,PokemonName){
         download()
         // console.log("List-",pokemonListHookResponse.pokemonListState);
     },[])       //it will be render only at first time
-
+    // console.log('similar pokemon',pokemon);
     return [pokemon]
 }
 export default usePokemonDetails

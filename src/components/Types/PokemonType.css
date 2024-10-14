@@ -1,0 +1,12 @@
+.pokemon-list-wrapper {
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 10px; */
+}
+
+
+.pokemon-wrapper{
+    gap: 10px;
+}

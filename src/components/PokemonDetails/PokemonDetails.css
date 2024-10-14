@@ -1,11 +1,22 @@
 .pokemon-details-wrapper{
-    margin-top: 60px;
-   
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    height: 100%;
+    gap: 10px;
+    /* background-color: #fff; */
+}
+span{
+    font-size: xx-large;
 }
 
 .pokemon-name{
-    font-size: xx-large;
+    font-size: 100px; 
     color: #808080;
+    width: 50%;
+    /* color: #6b1717; */
     margin-bottom: 40px;
     
 }
@@ -13,17 +24,8 @@
     letter-spacing: 1rem;
 }
 
-.pokemon-types{
-    display: flex;
-    margin-top: 2rem;
-    gap: 3rem;
-    font-size: larger;
-}
-.pokemon-details-wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
+
 .image{
     max-height: 200px;
 }
@@ -36,8 +38,9 @@
 
 .other{
     font-size: large;
-    /* justify-content: center; */
-    align-items: center;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
     letter-spacing: 2px;
@@ -46,22 +49,31 @@
 .message{
     font-weight: 1000;
     font-size: 30px;
-
+    /* background-color: gray; */
 }
 .other ul{
     letter-spacing: 2px;
     justify-content: center;
-    /* text-decoration: none   ;
-     */
      padding-left: 180px;
      list-style:disc;
     align-items: center;
 
 }
 .other ul :hover{
-    /* display: none; */
     color: red;
     font-family:cursive;
-    /* font-size: 40px; */
-    /* letter-spacing: /20px; */
 }
+
+button {
+    background: linear-gradient(45deg, red, orange); /* Gradient from red to orange */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    font-size: 16px; /* Font size */
+    transition: background 0.3s ease; /* Smooth transition */
+     }
+     button:hover {
+        background: linear-gradient(45deg, darkred, darkorange); /* Darker gradient on hover */
+      }

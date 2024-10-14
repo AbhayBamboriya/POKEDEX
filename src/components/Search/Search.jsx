@@ -1,15 +1,29 @@
+import { useEffect, useState } from 'react'
 import useDebounce from '../../hooks/useDebounce'
 import Preloader from '../PreLoader/PreLoader'
 import './Search.css'
+import Loader from '../PreLoader/Loader'
 function Search({updateSearchTerm,placeholder}){
-    const debouncedCallback=useDebounce((e)=>updateSearchTerm(e.target.value))
+    const [loading, setLoading] = useState(false);
+    const debouncedCallback=useDebounce((e)=>{
+        
+        updateSearchTerm(e.target.value)
+        setLoading(false);  
+    })
+    const handleChange = (e) => {
+        setLoading(true); 
+        debouncedCallback(e);
+        // Set loading state when user types
+        
+    };
+    
     return (
         <div className='search-wrapper'>
             <input 
                 id='pokemon-name-search'
                 type="text"
                 placeholder={`${placeholder}`}
-                onChange={debouncedCallback}
+                onChange={handleChange}
                
             />
         </div>

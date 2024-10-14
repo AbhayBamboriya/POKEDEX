@@ -1,10 +1,47 @@
-
 .pokemon {
     /* background-color: #1f1f1f; */
     width: 100%;
     box-shadow: 5px 5px 10px 2px rgba(104, 104, 64, 0.8);
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.pokemon:hover{
+.pokemon:hover {
     background-color: #1f1b1b;
+}
+
+/* Media Queries */
+
+/* For screens smaller than 768px (tablets and phones) */
+@media (max-width: 768px) {
+    .pokemon {
+        width: 90%; /* Make Pokemon cards narrower on smaller screens */
+        margin: 10px auto; /* Center the card with margin */
+        padding: 10px; /* Add some padding for better touch targets */
+        border-radius: 8px; /* Rounded corners for better aesthetics */
+    }
+
+    .pokemon-name {
+        font-size: 18px; /* Increase font size for better readability */
+    }
+
+    .pokemon-image {
+        width: 100px; /* Set a fixed width for the image */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+/* For screens smaller than 480px (mobile devices) */
+@media (max-width: 480px) {
+    .pokemon {
+        width: 95%; /* Make Pokemon cards wider on very small screens */
+        margin: 5px auto; /* Reduce margin */
+    }
+
+    .pokemon-name {
+        font-size: 16px; /* Further adjust font size */
+    }
+
+    .pokemon-image {
+        width: 80px; /* Smaller image size for mobile */
+    }
 }

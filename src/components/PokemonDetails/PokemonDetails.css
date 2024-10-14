@@ -1,42 +1,39 @@
-.pokemon-details-wrapper{
+.pokemon-details-wrapper {
     margin-top: 5%;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     flex-direction: column;
     height: 100%;
     gap: 10px;
-    /* background-color: #fff; */
 }
-span{
+
+span {
     font-size: xx-large;
 }
 
-.pokemon-name{
+.pokemon-name {
     font-size: 100px; 
     color: #808080;
     width: 50%;
-    /* color: #6b1717; */
     margin-bottom: 40px;
-    
 }
-.pokemon-name span{
+
+.pokemon-name span {
     letter-spacing: 1rem;
 }
 
-
-
-.image{
+.image {
     max-height: 200px;
 }
-.pokemon-types div{
+
+.pokemon-types div {
     border: 1px solid greenyellow;
     border-radius: 15px;
     padding: 1rem;
     background-color: greenyellow;
 }
 
-.other{
+.other {
     font-size: large;
     height: fit-content;
     display: flex;
@@ -46,22 +43,23 @@ span{
     letter-spacing: 2px;
     color: #808080;
 }
-.message{
+
+.message {
     font-weight: 1000;
     font-size: 30px;
-    /* background-color: gray; */
 }
-.other ul{
+
+.other ul {
     letter-spacing: 2px;
     justify-content: center;
-     padding-left: 180px;
-     list-style:disc;
+    padding-left: 180px;
+    list-style: disc;
     align-items: center;
-
 }
-.other ul :hover{
+
+.other ul :hover {
     color: red;
-    font-family:cursive;
+    font-family: cursive;
 }
 
 button {
@@ -73,7 +71,68 @@ button {
     cursor: pointer; /* Changes cursor to pointer on hover */
     font-size: 16px; /* Font size */
     transition: background 0.3s ease; /* Smooth transition */
-     }
-     button:hover {
-        background: linear-gradient(45deg, darkred, darkorange); /* Darker gradient on hover */
-      }
+}
+
+button:hover {
+    background: linear-gradient(45deg, darkred, darkorange); /* Darker gradient on hover */
+}
+
+/* Media Queries */
+
+/* For screens smaller than 768px (tablets and phones) */
+@media (max-width: 768px) {
+    .pokemon-details-wrapper {
+        margin-top: 10%; /* Increase top margin for better spacing */
+        gap: 20px; /* Increase gap between elements */
+    }
+
+    .pokemon-name {
+        font-size: 50px; /* Reduce font size for smaller screens */
+        width: 80%; /* Make the width larger on smaller screens */
+    }
+
+    .image {
+        max-height: 150px; /* Reduce image size */
+    }
+
+    .other {
+        font-size: 18px; /* Slightly reduce font size */
+    }
+
+    .message {
+        font-size: 24px; /* Adjust message font size */
+    }
+
+    .other ul {
+        padding-left: 0; /* Remove padding for smaller screens */
+        justify-content: center; /* Center the list */
+    }
+}
+
+/* For screens smaller than 480px (mobile devices) */
+@media (max-width: 480px) {
+    .pokemon-details-wrapper {
+        margin-top: 15%; /* More margin for very small screens */
+    }
+
+    .pokemon-name {
+        font-size: 40px; /* Further reduce font size */
+    }
+
+    .image {
+        max-height: 120px; /* Further reduce image size */
+    }
+
+    .other {
+        font-size: 16px; /* Further reduce font size */
+    }
+
+    .message {
+        font-size: 20px; /* Adjust message font size */
+    }
+
+    button {
+        padding: 8px 16px; /* Smaller button padding */
+        font-size: 14px; /* Smaller font size for buttons */
+    }
+}

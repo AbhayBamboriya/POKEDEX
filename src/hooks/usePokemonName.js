@@ -8,14 +8,10 @@ function usePokemonName(PokemonName){
     const [filling,setFilling]=useState({
         fitlerPokemon:''
     })
-    console.log('cdfjkdfjd',PokemonName);
     async function SameType(t){
         try{
             const pokemonOfSameType=await axios.get(`https://pokeapi.co/api/v2/type/${t.type.name}`)
-            console.log('Namea and type'," ",PokemonName," ",t.type.name);
             const tempArray = [];
-            console.log('res',pokemonOfSameType);
-            console.log('lengthfkfkd',tempArray.length," printing array ",tempArray);
             let     i=1,flag=true,breaking=false;
             pokemonOfSameType?.data?.pokemon.map((p)=>{
                 if(breaking)    return
@@ -62,8 +58,6 @@ function usePokemonName(PokemonName){
     useEffect(()=>{
         download()
     },[PokemonName])
-    console.log('matching',filling);
-    console.log('datals fetched',pokemon);
     return  [pokemon]
 }
 export default usePokemonName

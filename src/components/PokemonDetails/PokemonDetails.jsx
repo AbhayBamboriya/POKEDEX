@@ -2,42 +2,39 @@ import {Link,  useNavigate,  useParams } from "react-router-dom"
 import './PokemonDetails.css'
 import usePokemonDetails from "../../hooks/usePokemonDetails";
 import PokemonType from "../Types/PokemonType";
-import { useState } from "react";
-
- 
-
-
+import { useEffect, useRef, useState } from "react";
 function PokemonDetails({pokemonName}){
+    const params=useParams()
     const [showComponent, setShowComponent] = useState({
         check:false,
         type:''
     });
     function handle(t){
-        console.log('called',t);
-        //  <PokemonType pokemonType={t} />
-         console.log('dfkdfk');
          setShowComponent(state=>({
             ...state,
-            check:true,
+            check:(showComponent.check ? false : true),
             type:t
          }));
 
         
     }
     const navigate=useNavigate()
-    function send(p){
-        console.log('ew');
-    }
-    console.log('chhheck',{pokemonName});
     let {id,pn}=useParams()
-    console.log('bb',id);
     const [pokemon]=usePokemonDetails(id,pokemonName);
-
-
-    
+    console.log('refresh',pokemon);
+    const ref=useRef()
+    const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      };
+    useEffect(()=>{
+        showComponent.check=false
+    })
     return (
+    //    <section id="details">
         <div className="pokemon-details-wrapper">
-            {/* <button>Go Back</button> */}
             <div className="pokemon-name" ><span>{pokemon.name}</span></div>
             <img className="image pokemon-name" src={pokemon.image}/>
             <div className="pokemon-name">Height:{pokemon.height}</div>
@@ -58,15 +55,18 @@ function PokemonDetails({pokemonName}){
                         <ul>
                             {pokemon.similarPokemon.map((p) =>
                                 <li key={p.pokemon.url} >
-                                    <Link to={`/pokemonName/${p.pokemon.name}`}>{p.pokemon.name}</Link>
+                                    <Link to={`/pokemonName/${p.pokemon.name}`} onClick={scrollToTop}>{p.pokemon.name}</Link>
                                 </li>
+                                
                             )}
+                            
                         </ul>
                     </div>
                     
                 </div>
             }
         </div>
+    //    </section>
     )
     
 } 

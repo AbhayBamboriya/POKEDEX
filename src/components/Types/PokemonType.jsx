@@ -2,7 +2,6 @@ import useTypes from "../../hooks/useTypes"
 import './PokemonType.css';
 import Display from "./Display";
 function PokemonType(pokemonType){
-    console.log('abhay');
     const typesOfPokemon=useTypes(pokemonType,true)
     return(
         <div className="pokemon-list-wrapper">

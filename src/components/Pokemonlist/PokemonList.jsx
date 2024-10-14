@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Pokemon from '../Pokemon/Pokemon';
 import Preloader from '../PreLoader/PreLoader';
 import usePokemonList from '../../hooks/usePokemonList';
+import Loader from '../PreLoader/Loader';
 function PokemonList(){
 
     const{pokemonListState,setPokemonListState}=usePokemonList(false);    
@@ -15,7 +16,7 @@ function PokemonList(){
             <div className="pokemon-wrapper">
                     
                         {   
-                        (pokemonListState.isLoading)?<Preloader/> :
+                        (pokemonListState.isLoading)?<Loader/> :
                         pokemonListState.pokemonList.map((p)=><Pokemon name={p.name} image={p.image} key={p.id} id={p.id}/>)
                           
                         }
@@ -28,7 +29,6 @@ function PokemonList(){
                         ...pokemonListState,
                         pokedexUrl:urlToSet
                     })}}> 
-                    
                     Previ
                 </button>
                 <button disabled={pokemonListState.nextUrl==null} onClick={()=> {

@@ -11,8 +11,11 @@ function Pokedex(){
   
     return (    
         <div className="pokedex-wrapper">  
-            <button onClick={()=>navigate('/types')}><span>Search By Type</span></button>
+            
+            <div className="search">
             <Search updateSearchTerm={setSearchTerm} placeholder={'Enter Name of Pokemon'}/>
+            <button onClick={()=>navigate('/types')} className="btn"><span>Search By Type</span></button>
+            </div>
             {/* {searchTerm} */}
             {/* whenever the key in pokemonDeetails changs then rerendering will take place
                 so for rerendering only key prop is used */}

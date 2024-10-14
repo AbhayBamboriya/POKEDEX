@@ -2,7 +2,9 @@ import   './PreLoader.css'
 import './Pre.jsx'
 function Preloader(){
     return(
-        <div id="preloader"></div>
+        <span class="
+  ld ld-ring ld-spin
+"></span>
     )
 }
 export default Preloader;

@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 
 
 
-// let type=''
-// flag=true search by the name of type
 function useTypes(type,flag){
     const[pokemon,setPokemon]=useState({
         // types:type,
@@ -14,13 +12,10 @@ function useTypes(type,flag){
         // url:''
 
     })
-    // console.log('typing',type);
     async function download(){
-    //    console.log('ddfifdifidfidfd');
-       const pokemonOfSameType= await axios.get(`https://pokeapi.co/api/v2/type/${type.pokemonType}`)
-    //    console.log('bug',pokemonOfSameType);
+       const pokemonOfSameType= await axios.get(`https://pokeapi.co/api/v2/type/${type?.pokemonType}`)
+       
        const res=pokemonOfSameType?.data?.pokemon.map((p)=>{
-            // console.log('printin',p.pokemon.name);
            return{
                 name:p.pokemon.name,
                 url:p.pokemon.url
@@ -34,10 +29,8 @@ function useTypes(type,flag){
     } 
     
    useEffect(()=>{
-    console.log('df');
     download()
    },[type,flag])
-    console.log('checking once',pokemon);
     return [pokemon]
 }
 export default useTypes

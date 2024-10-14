@@ -26,8 +26,9 @@ function usePokemonDetails(PokemonName,id){
                 types:response.data.types.map((t)=>t.type.name),
                 // similarPokemon:pokemonOfSameType.data.pokemon.slice(0,4)
             }))
-    
             
+
+            console.log('debugging',pokemon);
             pokemonOfSameType.then((response)=>{
                 setPokemon(state=>({
                     ...state,

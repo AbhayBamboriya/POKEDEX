@@ -75,7 +75,7 @@ function usePokemonList(){
     useEffect(()=>{
         downloadPokemons();
     },[pokemonListState.pokedexUrl])
-
+    console.log('debugging',pokemonListState);
 
      return {pokemonListState,setPokemonListState}
 }
